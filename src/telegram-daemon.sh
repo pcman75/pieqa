@@ -25,14 +25,14 @@
 PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
 DESC="Telegram Messaging System"
 NAME=telegram-cli
-USERNAME=telegramd
-GROUPNAME=telegramd
+USERNAME=pi
+GROUPNAME=pi
 LOGFILE=/var/log/telegramd.log
-DAEMON=/usr/bin/telegram-cli
+DAEMON=/pi/tg/bin/telegram-cli
 TGPORT=1234
 
-TelegramKeyFile="/etc/telegram-cli/server.pub"
-ReceiveLua=/usr/local/lib/tg-handler.lua
+TelegramKeyFile=/pi/tg/telegram-cli/tg-server.pub
+ReceiveLua=/pi/tg/alarmacutremur.lua
 
 DAEMON_ARGS="-W -b -U $USERNAME -G $GROUPNAME -k $TelegramKeyFile -L $LOGFILE -P $TGPORT -s $ReceiveLua -d -vvvRC"
 #DAEMON_ARGS="-W -U telegramd -G telegramd -k $TelegramKeyFile -L /var/log/telegramd.log -P $TGPORT -d -vvvRC"
