@@ -28,14 +28,16 @@ NAME=telegram-cli
 USERNAME=pi
 GROUPNAME=pi
 LOGFILE=/var/log/telegramd.log
-DAEMON=/pi/tg/bin/telegram-cli
+DAEMON=/home/pi/tg/bin/telegram-cli
 TGPORT=1234
 
-TelegramKeyFile=/pi/tg/telegram-cli/tg-server.pub
-ReceiveLua=/pi/tg/alarmacutremur.lua
+TelegramKeyFile=/home/pi/tg/tg-server.pub
+ReceiveLua=/home/pi/tg/alarmacutremur.lua
 
-DAEMON_ARGS="-W -b -U $USERNAME -G $GROUPNAME -k $TelegramKeyFile -L $LOGFILE -P $TGPORT -s $ReceiveLua -d -vvvRC"
-#DAEMON_ARGS="-W -U telegramd -G telegramd -k $TelegramKeyFile -L /var/log/telegramd.log -P $TGPORT -d -vvvRC"
+#DAEMON_ARGS="-W -b -U $USERNAME -G $GROUPNAME -k $TelegramKeyFile -L $LOGFILE -P $TGPORT -s $ReceiveLua -d -vvvRC"
+#/home/pi/tg/bin/telegram-cli -k /home/pi/tg/tg-server.pub -W -s /home/pi/tg/alarmacutremur.lua -U pi -G pi
+#DAEMON_ARGS=“-k $TelegramKeyFile -L $LOGFILE -P $TGPORT -s $ReceiveLua -d -vvvRC"
+
 
 PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
